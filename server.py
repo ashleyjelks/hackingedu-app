@@ -68,6 +68,19 @@ def register_form():
 
 	return render_template("register.html")
 
+@app.route('/redeem_points')
+def redeem_points():
+	# url = "https://api.target.com/items/v3/"
+	# payload = {
+	# 		"product_id": "081-04-0231",
+	# 		"id_type": 'dpci', 
+	# 		"key": '1Kfdqvy6wHmvJ4LDyAVOl7saCBoKHcSb',
+	# 		"fields": 
+	# 		}
+	# data = requests.get(url, params=payload)
+	# print data.
+	return render_template("index.html")
+
 @app.route('/register', methods=['POST'])
 def process_registration():
 	"""Registers new users"""
