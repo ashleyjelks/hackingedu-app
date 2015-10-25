@@ -33,6 +33,13 @@ class Session(db.Model):
 		return "<Session for Student ID %s" % (self.user_id)
 
 
+def init_app():
+
+    from flask import Flask
+    app = Flask(__name__)
+
+    connect_to_db(app)
+
 
 def connect_to_db(app):
 	# Configure to use our SQLite database
