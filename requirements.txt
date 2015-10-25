@@ -11,4 +11,8 @@ clusterpoint-api==0.3.0
 itsdangerous==0.24
 pycps==0.3.0
 requests==2.8.1
+<<<<<<< HEAD
 wsgiref==0.1.2
+=======
+wsgiref==0.1.2
+>>>>>>> e941c96a0dd7571a2a429ca6903bac21f0377415
