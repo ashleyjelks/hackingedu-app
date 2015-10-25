@@ -63,11 +63,17 @@ def process_registration():
 	flash('Welcome %s' % user_name)
 	return redirect('/')
 
+@app.route('/homepage', methods=['GET'])
+def homepage():
+		"""homepage for StudyTracker, sends users to either login or register"""
+
+		return render_template("homepage.html")
+
 
 
 if __name__ == "__main__": 
 	app.debug = True
 	connect_to_db(app)
-	# DebugToolbarExtension(app)
+	DebugToolbarExtension(app)
 	app.run()
 
