@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form action="register" method="POST">
+
+	<div class="form_input">
+		<label>Username:
+			<input type="text" name="username">
+		</label>
+	</div>
+
+	<div class="form_input">
+		<label>Email:
+			<input type="email" name="email">
+		</label>
+	</div>
+
+	<div class="form_input">
+		<label>Password:
+			<input type="password" name="password">
+		</label>
+	</div>
+
+	<div class="form_input">
+		<label>Phone Number:
+			<input type="tel" name="phone">
+		</label>
+	</div>
+
+	<div class="form_input">
+		<label>Will you be using site as a tutor?
+			<select name="tutor_id">
+				<option value="0" required>No</option>
+				<option value="1" required>Yes</option>
+			</select>
+		</label>
+	</div>
+
+	<div class="form_input">
+		<input type="submit">
+	</div>
+
+</form>
+
+
+{% endblock %}
