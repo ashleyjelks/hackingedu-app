@@ -1,4 +1,5 @@
-from flask import Flask, render_template, flash, redirect, request
+from flask import Flask, render_template, flash, redirect, request, session
+from flask_debugtoolbar import DebugToolbarExtension
 from jinja2 import StrictUndefined
 import requests, json
 
@@ -42,9 +43,9 @@ def process_registration():
 	user_name = request.form['username']
 	password = request.form['password']
 	phone = request.form['phone']
-	tutor_id = request.form['tutor']
+	tutor_id = int(request.form['tutor_id'])
 
-	new_user = User(email=email, user_name=user_name, password=password, phone=phone, tutor_id=tutor_id)
+	new_user = User(user_name=user_name, email=email, password=password, phone=phone, tutor_id=tutor_id)
 
 	old_email = User.query.filter(User.email == email).first()
 	old_user_name = User.query.filter(User.user_name == user_name).first()
@@ -57,7 +58,7 @@ def process_registration():
 		session["user_id"] = user.user_name
 	else:
 		flash("That Username or Email is already in use")
-		return redirect('/register-form')
+		return redirect('/')
 
 	flash('Welcome %s' % user_name)
 	return redirect('/')
@@ -66,4 +67,7 @@ def process_registration():
 
 if __name__ == "__main__": 
 	app.debug = True
+	connect_to_db(app)
+	DebugToolbarExtension(app)
 	app.run()
+

@@ -10,7 +10,7 @@ class User(db.Model):
 	email = db.Column(db.String(25), nullable=False)
 	password = db.Column(db.String(25), nullable=False)
 	phone = db.Column(db.String(10), nullable=True)
-	tutor_id = db.Column(db.Boolean)
+	tutor_id = db.Column(db.Boolean, nullable=True)
 
 	def __rep__(self): 
 		return "<User = %s>" % (self.user_name)
