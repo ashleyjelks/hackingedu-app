@@ -1,12 +1,25 @@
 from flask import Flask, render_template
 from jinja2 import StrictUndefined
+import requests, json
 
 app = Flask(__name__)
 
 app.secret_key = "MuchSecretWow"
+API_KEY = '1Kfdqvy6wHmvJ4LDyAVOl7saCBoKHcSb'
 
 @app.route('/')
 def index(): 
+	url = "https://api.target.com/items/v3/"
+	payload = {
+			"product_id": "081-04-0231",
+			"id_type": 'dpci', 
+			"key": '1Kfdqvy6wHmvJ4LDyAVOl7saCBoKHcSb',
+			}
+	data = requests.get(url, params=payload)
+	# data = json.loads(data.content)
+	print "The data: ", data
+	print "what you can do: ", data.content
+
 	return render_template('index.html')
 
 if __name__ == "__main__": 
