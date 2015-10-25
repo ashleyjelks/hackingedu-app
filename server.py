@@ -65,7 +65,13 @@ def process_registration():
 	flash('Welcome %s' % user_name)
 	return redirect('/')
 
-@app.route('/add_event',  methods=["POST"])
+@app.route('/homepage', methods=['GET'])
+def homepage():
+		"""homepage for StudyTracker, sends users to either login or register"""
+
+		return render_template("homepage.html")
+
+@app.route('/add_event')
 def add_event(): 
 	hours = request.form('hours')
 	subject = request.form('subject')
@@ -80,12 +86,10 @@ def add_event():
 	
 
 
-
-
 if __name__ == "__main__": 
 	app.debug = True
 	connect_to_db(app)
 	DebugToolbarExtension(app)
-	# DebugToolbarExtension(app)
+	DebugToolbarExtension(app)
 	app.run()
 

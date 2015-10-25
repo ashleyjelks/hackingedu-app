@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <head>
-    <title>HackingEDU</title>
-          {% block head %}
-          {% endblock %}
-</head>
-<body>   
-  BASE TEMPLATE
-{% block content %} put your content here {% endblock %}
-
-</body>
+    {% block head %}
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Special+Elite">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css"/>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css"/>
-<style type="text/css" src="static/index.css"></style>
-<!-- <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Special+Elite"> -->
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Sumana:400,700">
+<style type="text/css" src="static/css/stylsheet.css"></style>
+<title>HackingEDU</title>
+          {% endblock %}
+</head>
+<body>   
+{% block content %}
+{% endblock %}
+</body>
 </html>
