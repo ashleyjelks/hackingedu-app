@@ -6,3 +6,4 @@ argparse==1.2.1
 clusterpoint-api==0.3.0
 itsdangerous==0.24
 wsgiref==0.1.2
+Flask-SQLAlchemy==2.0

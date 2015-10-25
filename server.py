@@ -1,8 +1,13 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, flash, redirect, request
 from jinja2 import StrictUndefined
 import requests, json
 
+from model import connect_to_db, db, init_app, User, Class, Session
+
+
+
 app = Flask(__name__)
+app.jinja_env.undefined = StrictUndefined
 
 app.secret_key = "MuchSecretWow"
 API_KEY = '1Kfdqvy6wHmvJ4LDyAVOl7saCBoKHcSb'
@@ -22,9 +27,12 @@ def index():
 
 	return render_template('index.html')
 
-if __name__ == "__main__": 
-	app.debug = True
-	app.run()
+
+@app.route('/register-form', methods=['GET'])
+def register_form():
+	"""processes registration."""
+
+	return render_template("register.html")
 
 @app.route('/register', methods=['POST'])
 def process_registration():
@@ -53,3 +61,9 @@ def process_registration():
 
 	flash('Welcome %s' % user_name)
 	return redirect('/')
+
+
+
+if __name__ == "__main__": 
+	app.debug = True
+	app.run()
