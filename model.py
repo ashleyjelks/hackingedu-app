@@ -30,6 +30,11 @@ class Session(db.Model):
 	subject_class = db.Column(db.String, db.ForeignKey('classes.subject'))
 	user_id = db.Column(db.String, db.ForeignKey('users.user_id'))
 
+	user = db.relationship("User", 
+							backref=db.backref("study_sessions", order_by=study_id))
+	clas = db.relationship("Class", 
+							backref=db.backref("class_sessions", order_by=subject_class))
+
 	def __rep__(self): 
 		return "<Session for Student ID %s" % (self.user_id)
 
@@ -43,16 +48,21 @@ def init_app():
 
 
 def connect_to_db(app):
-	# Configure to use our SQLite database
+    # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///hackingedu.db'
+    # db.app = app
+    # db.init_app(app)
+
 	app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://admin:POQDIFCTPTAEKFFF@aws-us-east-1-portal.5.dblayer.com:10928/compose'
 	db.app = app
 	db.init_app(app)
+	
 
 
 if __name__ == "__main__": 
 	from server import app
 	connect_to_db(app)
-	print "Connected to DB."
+	print "Connected to DB"
+
 
 # import pycps
 

@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<<<<<<< HEAD
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+=======
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+>>>>>>> 60f26b7cbe268f7b95d09569420a90edca2f8bb7
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,7 +33,29 @@
 
 
 .sidebar-brand {
+<<<<<<< HEAD
     color: #029DAE;
+=======
+    color: #333333;}
+
+.Donutlegend li span{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+
+}
+tr {
+  width: 300px;
+  height: 100px;
+  padding: 20px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  margin: -70px 0 0 -170px;
+>>>>>>> 60f26b7cbe268f7b95d09569420a90edca2f8bb7
 }
 
 html, body { font-family: 'Jura', sans-serif; }
@@ -114,8 +142,23 @@ html, body { font-family: 'Jura', sans-serif; }
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
+<<<<<<< HEAD
                     <div class="col-lg-12">
                     
+=======
+                    <div class="col-lg-3">
+                        <table style="position: relative;">
+                        <tr>
+                            To the right, you can see the break-down of the time you have spent studying for each subject. The more you study, the more points you can get, and the more free supplies you can earn!
+                        </tr>
+                        </table>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="melon-class" style="width:70%; margin-left:auto; margin-right:auto">
+                            <canvas id="donutChart" style="width:400px"></canvas>
+                            <div id="donutLegend" class="Donutlegend"></div>
+                        </div>                        
+>>>>>>> 60f26b7cbe268f7b95d09569420a90edca2f8bb7
         
                     </div>
                 </div>
@@ -140,6 +183,23 @@ html, body { font-family: 'Jura', sans-serif; }
     });
     </script>
 
+    <script>
+    var options = {
+        responsive: true,
+    };
+
+    // Make Donut Chart 
+    var ctx_donut = $("#donutChart").get(0).getContext("2d");
+
+    $.get("/chart_info", function(data){
+        var json_data = $.parseJSON(data);
+        var myDonutChart = new Chart(ctx_donut).Doughnut(json_data, options);
+        $('#donutLegend').get(0).innerHTML = myDonutChart.generateLegend();
+    });
+
+    </script>
+
 </body>
 
 </html>
+

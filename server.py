@@ -73,12 +73,57 @@ def homepage():
 
 @app.route('/add_event')
 def add_event(): 
-	pass
+	hours = request.form('hours')
+	subject = request.form('subject')
+	user_id = session['user_id']
+
+	sess = Session(hours=hours, subject_class=subject, user_id=user_id)
+	db.session.add(sess)
+	db.session.commit()
+
+	flash("Awesome! We got down your hours!")
+	return redirect('/')
+
+@app.route('/chart_info')
+def chart_info():
+	data_list_of_dicts =  [
+		{
+			"value": 5,
+			"color": "#602C92",
+			"highlight": "#614E92",
+			"label": "Computer Science"
+		},
+		{
+			"value": 3,
+			"color": "#029DAE",
+			"highlight": "#5AD3D1",
+			"label": "Math"
+		},
+		{
+			"value": 4,
+			"color": "#FCAC19",
+			"highlight": "#FFC870",
+			"label": "Social Studies"
+		},
+
+		{
+			"value": 2,
+			"color": '#E90032',
+			"highlight" : "#FF5A5E",
+			"label" : "AP Biology",
+		}
+	]
+	return json.dumps(data_list_of_dicts)
+	
 
 
 if __name__ == "__main__": 
 	app.debug = True
 	connect_to_db(app)
+<<<<<<< HEAD
 	DebugToolbarExtension(app)
+=======
+	# DebugToolbarExtension(app)
+>>>>>>> 60f26b7cbe268f7b95d09569420a90edca2f8bb7
 	app.run()
 
