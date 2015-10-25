@@ -1,6 +1,22 @@
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Special+Elite">
 {% extends 'base.html' %}
 {% block content %}
 <style type="text/css">
+ body {
+  height: auto;
+    width: auto;
+    background:url("/static/img/hackededu.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    text-align: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    position: fixed;
+    font-family: serif;
+}
 .btn-lg {
   background-color: hsl(145, 62%, 68%) !important;
   background-repeat: repeat-x;
@@ -17,7 +33,21 @@
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.33);
   -webkit-font-smoothing: antialiased;
 }
+
+.vertical-center {
+  min-height: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  display: -webkit-flex; /* For Safari */
+  -webkit-justify-content: center; /* For Safari */
+  -webkit-align-items: center; /* For Safari */
+}
+
 </style>
+<div class="vertical-center">
 <div class="well spaced" style="width:100%;">
 	<div>
 		<h1>StudyTracker Registration Page</h1><br><br>
@@ -62,6 +92,7 @@
 			</div>
 		</form>
 	</div>
+</div>
 </div>
 
 
