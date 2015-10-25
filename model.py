@@ -17,6 +17,7 @@ class User(db.Model):
 
 class Class(db.Model): 
 	__tablename__ = "classes"
+	
 	subject = db.Column(db.String(25), primary_key=True)
 
 	def __rep__(self): 

@@ -6,7 +6,6 @@ import requests, json
 from model import connect_to_db, db, init_app, User, Class, Session
 
 
-
 app = Flask(__name__)
 app.jinja_env.undefined = StrictUndefined
 
@@ -27,6 +26,7 @@ def index():
 	print "what you can do: ", data.content
 
 	return render_template('index.html')
+
 
 
 @app.route('/register-form', methods=['GET'])
@@ -55,13 +55,19 @@ def process_registration():
 		db.session.commit()
 
 		user = User.query.filter(User.email == email).first()
-		session["user_id"] = user.user_name
+		session["user_id"] = user.user_id
+		session["user_name"] = user.user_name
 	else:
 		flash("That Username or Email is already in use")
 		return redirect('/')
 
 	flash('Welcome %s' % user_name)
 	return redirect('/')
+
+@app.route('/add_event')
+def add_event(): 
+	pass
+
 
 
 
