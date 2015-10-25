@@ -114,12 +114,6 @@ def chart_info():
 		}
 	]
 	return json.dumps(data_list_of_dicts)
-
-
-@app.route('/login')
-def login():
-
-	return render_template('login.html')
 	
 
 
