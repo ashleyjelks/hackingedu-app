@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="vertical-center">
+<div class="well spaced" style="width:100%;">
+    <div>
+        <h1>StudyTracker Login Page</h1><br><br>
+            <h4>Login to Your StudyTracker Account</h4>
+        <form action="/login" method="POST">
+
+            <div class="form_input">
+                <label>Email:
+                    <input type="email" name="email">
+                </label>
+            </div>
+
+            <div class="form_input">
+                <label>Password:
+                    <input type="password" name="password">
+                </label>
+            </div>
+
+            <div class="form_input">
+                <input type="submit" class="btn btn-lg">
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+
+
+{% endblock %}
