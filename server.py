@@ -2,6 +2,7 @@ from flask import Flask, render_template, flash, redirect, request, session
 from flask_debugtoolbar import DebugToolbarExtension
 from jinja2 import StrictUndefined
 import requests, json
+import psycopg2
 
 from model import connect_to_db, db, init_app, User, Class, Session
 
@@ -43,7 +44,7 @@ def process_registration():
 	user_name = request.form['username']
 	password = request.form['password']
 	phone = request.form['phone']
-	tutor_id = int(request.form['tutor_id'])
+	tutor_id = request.form['tutor_id']
 
 	new_user = User(user_name=user_name, email=email, password=password, phone=phone, tutor_id=tutor_id)
 
@@ -68,6 +69,7 @@ def process_registration():
 if __name__ == "__main__": 
 	app.debug = True
 	connect_to_db(app)
+	DebugToolbarExtension(app)
 	# DebugToolbarExtension(app)
 	app.run()
 

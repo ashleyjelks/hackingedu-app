@@ -43,7 +43,7 @@ def init_app():
 
 def connect_to_db(app):
 	# Configure to use our SQLite database
-	app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///hackingedu.db'
+	app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://admin:POQDIFCTPTAEKFFF@aws-us-east-1-portal.5.dblayer.com:10928/compose'
 	db.app = app
 	db.init_app(app)
 
