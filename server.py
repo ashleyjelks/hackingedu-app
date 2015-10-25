@@ -114,20 +114,18 @@ def chart_info():
 		}
 	]
 	return json.dumps(data_list_of_dicts)
+
+
+@app.route('/login')
+def login():
+
+	return render_template('login.html')
 	
 
 
 if __name__ == "__main__": 
 	app.debug = True
 	connect_to_db(app)
-<<<<<<< HEAD
-<<<<<<< HEAD
 	DebugToolbarExtension(app)
-=======
-	# DebugToolbarExtension(app)
->>>>>>> 60f26b7cbe268f7b95d09569420a90edca2f8bb7
-=======
-	DebugToolbarExtension(app)
->>>>>>> 89bfbd60a50a0e05b89fa1ce3171435f0bf1de68
 	app.run()
 
