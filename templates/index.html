@@ -26,6 +26,16 @@
     <![endif]-->
 
 </head>
+<style type="text/css">
+.panel-wrapper {
+  color: #AEEE00;
+  border-color: #01B0F0;}
+
+.sidebar-brand {
+    color: #333333;
+}
+
+  </style>
 
 <body>
 
@@ -35,30 +45,30 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
-                    <a href="#">
+                    <a href="#" style="color:#33333">
                         Welcome to StudyTracker
                     </a>
                 </li>
                 <li>
-                    <a href="#">StudyTracker Dashboard</a>
+                    <a href="#" style="color:#FF3581">StudyTracker Dashboard</a>
                 </li><br>
                 <li>
-                    <a href="#">Track an Event</a>
+                    <a href="#" style="color:#FF3581">Track an Event</a>
                 </li><br>
                 <li>
-                    <a href="#">View Points</a>
+                    <a href="#" style="color:#FF3581">View Points</a>
                 </li><br>
                 <li>
-                    <a href="#">View Tracked Events</a>
+                    <a href="#" style="color:#FF3581">View Tracked Events</a>
                 </li><br>
                 <li>
-                    <a href="#">Send StudyTracker Text Alerts</a>
+                    <a href="#" style="color:#FF3581">Send StudyTracker Text Alerts</a>
                 </li><br>
                 <li>
-                    <a href="#">Invite a Friend to StudyTracker</a>
+                    <a href="#" style="color:#FF3581">Invite a Friend to StudyTracker</a>
                 </li><br>
                 <li>
-                    <a href="#">Logout</a>
+                    <a href="#" style="color:#FF3581">Logout</a>
                 </li><br>
             </ul>
         </div>
@@ -66,13 +76,14 @@
 
         <!-- Page Content -->
         <h1>StudyTracker Dashboard</h1>
-         <div class="row">
+        <div class="panel-wrapper">
+            <div class="row">
                 <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-green">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-user fa-5x"></i>
+                                    <i class="fa fa-odnoklassniki fa-3x" style="color:#01B0F0"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">STUDENT NAME</div>
@@ -83,6 +94,23 @@
                     </div>
                 </div>
 
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-red">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-diamond fa-3x" style="color:#01B0F0"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">CURRENT POINTS</div>
+                                    <div>###</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
 
 
 
