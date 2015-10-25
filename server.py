@@ -26,8 +26,40 @@ def index():
 	print "The data: ", data
 	print "what you can do: ", data.content
 
+	return render_template('homepage.html')
+
+@app.route('/index')
+def logged_in_screen():
 	return render_template('index.html')
 
+@app.route('/login', methods=['GET'])
+def login_form():
+	"""Show login form."""
+
+	return render_template("login.html")
+@app.route('/login', methods=['POST'])
+def login_process():
+	"""Process login."""
+
+	# Get form variables
+	email = request.form["email"]
+	password = request.form["password"]
+
+	user = User.query.filter_by(email=email).first()
+
+	if not user:
+		flash("No such user! Try logging in again")
+		return redirect("/login")
+
+	if user.password != password:
+		flash("Incorrect password")
+		return redirect("/login")
+
+	session["user_id"] = user.user_id
+	session["user_name"] = user.user_name
+
+	flash("Logged in")
+	return redirect("/users/%s/%s" % (user.user_id, user.user_name))
 
 
 @app.route('/register-form', methods=['GET'])
@@ -63,8 +95,13 @@ def process_registration():
 		return redirect('/')
 
 	flash('Welcome %s' % user_name)
-	return redirect('/')
+	return redirect('/index.html')
 
+@app.route('/logout')
+def logout():
+	session.clear()
+	flash("Logged out.")
+	return redirect('/')
 @app.route('/homepage', methods=['GET'])
 def homepage():
 		"""homepage for StudyTracker, sends users to either login or register"""
@@ -72,11 +109,19 @@ def homepage():
 		return render_template("homepage.html")
 
 @app.route('/add_event')
-def add_event(): 
-	hours = request.form('hours')
-	subject = request.form('subject')
-	user_id = session['user_id']
+def adding():
+	return render_template('add_event.html')
 
+@app.route('/add_event1', methods=["POST"])
+def add_event(): 
+	print '******************************'
+	print "the form request", request.form
+	hours = request.form('hours')
+	print "the hours: ", hours
+	subject = request.form('subject')
+	print "the subject: ", subject
+	user_id = session['user_id']
+	print "the user_id: ", user_id
 	sess = Session(hours=hours, subject_class=subject, user_id=user_id)
 	db.session.add(sess)
 	db.session.commit()
