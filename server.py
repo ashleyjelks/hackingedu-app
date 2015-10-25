@@ -83,13 +83,43 @@ def add_event():
 
 	flash("Awesome! We got down your hours!")
 	return redirect('/')
+
+@app.route('/chart_info')
+def chart_info():
+	data_list_of_dicts =  [
+		{
+			"value": 5,
+			"color": "#602C92",
+			"highlight": "#614E92",
+			"label": "Computer Science"
+		},
+		{
+			"value": 3,
+			"color": "#029DAE",
+			"highlight": "#5AD3D1",
+			"label": "Math"
+		},
+		{
+			"value": 4,
+			"color": "#FCAC19",
+			"highlight": "#FFC870",
+			"label": "Social Studies"
+		},
+
+		{
+			"value": 2,
+			"color": '#E90032',
+			"highlight" : "#FF5A5E",
+			"label" : "AP Biology",
+		}
+	]
+	return json.dumps(data_list_of_dicts)
 	
 
 
 if __name__ == "__main__": 
 	app.debug = True
 	connect_to_db(app)
-	DebugToolbarExtension(app)
-	DebugToolbarExtension(app)
+	# DebugToolbarExtension(app)
 	app.run()
 
