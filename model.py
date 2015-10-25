@@ -6,14 +6,14 @@ db = SQLAlchemy()
 class User(db.Model): 
 	__tablename__ = "users"
 	user_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-	first_name = db.Column(db.String(25), nullable=False)
-	last_name = db.Column(db.String(25), nullable=False)
+	user_name = db.Column(db.String(25), nullable=False)
+	email = db.Column(db.String(25), nullable=False)
 	password = db.Column(db.String(25), nullable=False)
 	phone = db.Column(db.String(10), nullable=True)
-	tutor = db.Column(db.Boolean)
+	tutor_id = db.Column(db.Boolean)
 
 	def __rep__(self): 
-		return "<User = %s %s>" % (self.first_name, self.last_name)
+		return "<User = %s>" % (self.user_name)
 
 class Class(db.Model): 
 	__tablename__ = "classes"
