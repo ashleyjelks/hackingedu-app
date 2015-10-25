@@ -2,9 +2,9 @@ from flask import Flask, render_template, flash, redirect, request, session
 from flask_debugtoolbar import DebugToolbarExtension
 from jinja2 import StrictUndefined
 import requests, json
+import psycopg2
 
 from model import connect_to_db, db, init_app, User, Class, Session
-
 
 
 app = Flask(__name__)
@@ -29,6 +29,7 @@ def index():
 	return render_template('index.html')
 
 
+
 @app.route('/register-form', methods=['GET'])
 def register_form():
 	"""processes registration."""
@@ -43,7 +44,7 @@ def process_registration():
 	user_name = request.form['username']
 	password = request.form['password']
 	phone = request.form['phone']
-	tutor_id = int(request.form['tutor_id'])
+	tutor_id = request.form['tutor_id']
 
 	new_user = User(user_name=user_name, email=email, password=password, phone=phone, tutor_id=tutor_id)
 
@@ -55,7 +56,8 @@ def process_registration():
 		db.session.commit()
 
 		user = User.query.filter(User.email == email).first()
-		session["user_id"] = user.user_name
+		session["user_id"] = user.user_id
+		session["user_name"] = user.user_name
 	else:
 		flash("That Username or Email is already in use")
 		return redirect('/')
@@ -69,29 +71,15 @@ def homepage():
 
 		return render_template("homepage.html")
 
-@app.route('/melondata1')
-def melon_data2():
-  data_list_of_dicts =  [
-    {
-      "value": 300,
-      "color": "#F7464A",
-      "highlight": "#FF5A5E",
-      "label": "Christmas Melon"
-    },
-    {
-      "value": 50,
-      "color": "#46BFBD",
-      "highlight": "#5AD3D1",
-      "label": "Crenshaw"
-    }
-  ]
-  return json.dumps(data_list_of_dicts)
-
+@app.route('/add_event')
+def add_event(): 
+	pass
 
 
 if __name__ == "__main__": 
 	app.debug = True
 	connect_to_db(app)
+	DebugToolbarExtension(app)
 	DebugToolbarExtension(app)
 	app.run()
 
