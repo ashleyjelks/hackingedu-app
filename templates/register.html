@@ -1,46 +1,68 @@
 {% extends 'base.html' %}
 {% block content %}
+<style type="text/css">
+.btn-lg {
+  background-color: hsl(145, 62%, 68%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#cdf3dd", endColorstr="#7adfa4");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#cdf3dd), to(#7adfa4));
+  background-image: -moz-linear-gradient(top, #cdf3dd, #7adfa4);
+  background-image: -ms-linear-gradient(top, #cdf3dd, #7adfa4);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #cdf3dd), color-stop(100%, #7adfa4));
+  background-image: -webkit-linear-gradient(top, #cdf3dd, #7adfa4);
+  background-image: -o-linear-gradient(top, #cdf3dd, #7adfa4);
+  background-image: linear-gradient(#cdf3dd, #7adfa4);
+  border-color: #7adfa4 #7adfa4 hsl(145, 62%, 63%);
+  color: #333 !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.33);
+  -webkit-font-smoothing: antialiased;
+}
+</style>
+<div class="well spaced" style="width:100%;">
+	<div>
+		<h1>StudyTracker Registration Page</h1><br><br>
+		    <h4>Complete the Information Below to Register for StudyTracker</h4>
+		<form action="register" method="POST">
 
-<form action="/register" method="POST">
+			<div class="form_input">
+				<label>Username:
+					<input type="text" name="username">
+				</label>
+			</div>
 
-	<div class="form_input">
-		<label>Username:
-			<input type="text" name="username">
-		</label>
+			<div class="form_input">
+				<label>Email:
+					<input type="email" name="email">
+				</label>
+			</div>
+
+			<div class="form_input">
+				<label>Password:
+					<input type="password" name="password">
+				</label>
+			</div>
+
+			<div class="form_input">
+				<label>Phone Number:
+					<input type="tel" name="phone">
+				</label>
+			</div>
+
+			<div class="form_input">
+				<label>Will you be using site as a tutor?
+					<select name="tutor_id">
+						<option value="0" required>No</option>
+						<option value="1" required>Yes</option>
+					</select>
+				</label>
+			</div>
+
+			<div class="form_input">
+				<input type="submit" class="btn btn-lg">
+			</div>
+		</form>
 	</div>
-
-	<div class="form_input">
-		<label>Email:
-			<input type="email" name="email">
-		</label>
-	</div>
-
-	<div class="form_input">
-		<label>Password:
-			<input type="password" name="password">
-		</label>
-	</div>
-
-	<div class="form_input">
-		<label>Phone Number:
-			<input type="text" name="phone">
-		</label>
-	</div>
-
-	<div class="form_input">
-		<label>Will you be using site as a tutor?
-			<select name="tutor_id">
-				<option value="0" required>No</option>
-				<option value="1" required>Yes</option>
-			</select>
-		</label>
-	</div>
-
-	<div class="form_input">
-		<input type="submit">
-	</div>
-
-</form>
+</div>
 
 
 {% endblock %}

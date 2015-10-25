@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Special+Elite">
 {% extends 'base.html' %}
 {% block content %}
 <style type="text/css">
@@ -14,22 +15,23 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     position: fixed;
+    font-family: serif;
 }
 
 .btn-lg {
-  background-color: hsl(41, 85%, 35%) !important;
+  background-color: hsl(145, 62%, 68%) !important;
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#efb73d", endColorstr="#a5750d");
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#efb73d), to(#a5750d));
-  background-image: -moz-linear-gradient(top, #efb73d, #a5750d);
-  background-image: -ms-linear-gradient(top, #efb73d, #a5750d);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #efb73d), color-stop(100%, #a5750d));
-  background-image: -webkit-linear-gradient(top, #efb73d, #a5750d);
-  background-image: -o-linear-gradient(top, #efb73d, #a5750d);
-  background-image: linear-gradient(#efb73d, #a5750d);
-  border-color: #a5750d #a5750d hsl(41, 85%, 29%);
-  color: #fff !important;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.39);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#cdf3dd", endColorstr="#7adfa4");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#cdf3dd), to(#7adfa4));
+  background-image: -moz-linear-gradient(top, #cdf3dd, #7adfa4);
+  background-image: -ms-linear-gradient(top, #cdf3dd, #7adfa4);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #cdf3dd), color-stop(100%, #7adfa4));
+  background-image: -webkit-linear-gradient(top, #cdf3dd, #7adfa4);
+  background-image: -o-linear-gradient(top, #cdf3dd, #7adfa4);
+  background-image: linear-gradient(#cdf3dd, #7adfa4);
+  border-color: #7adfa4 #7adfa4 hsl(145, 62%, 63%);
+  color: #333 !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.33);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -47,9 +49,9 @@
 
 </style>
 <div class="vertical-center">
-    <a class="btn btn-lg"  href="#" role="button">Register for a StudyTracker Account</a>
+    <a class="btn btn-lg"  href="/register-form" role="button">Register for a StudyTracker Account</a>
     <br>
-    <a class="btn btn-lg" href="#" role="button">Login to Your StudyTracker Account</a>
+    <!-- <a class="btn btn-lg" href="#" role="button">Login to Your StudyTracker Account</a> -->
 </div>
 {% endblock %}
 

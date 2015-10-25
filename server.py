@@ -69,6 +69,24 @@ def homepage():
 
 		return render_template("homepage.html")
 
+@app.route('/melondata1')
+def melon_data2():
+  data_list_of_dicts =  [
+    {
+      "value": 300,
+      "color": "#F7464A",
+      "highlight": "#FF5A5E",
+      "label": "Christmas Melon"
+    },
+    {
+      "value": 50,
+      "color": "#46BFBD",
+      "highlight": "#5AD3D1",
+      "label": "Crenshaw"
+    }
+  ]
+  return json.dumps(data_list_of_dicts)
+
 
 
 if __name__ == "__main__": 
