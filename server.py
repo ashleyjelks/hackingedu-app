@@ -65,9 +65,19 @@ def process_registration():
 	flash('Welcome %s' % user_name)
 	return redirect('/')
 
-@app.route('/add_event')
+@app.route('/add_event',  methods=["POST"])
 def add_event(): 
-	pass
+	hours = request.form('hours')
+	subject = request.form('subject')
+	user_id = session['user_id']
+
+	sess = Session(hours=hours, subject_class=subject, user_id=user_id)
+	db.session.add(sess)
+	db.session.commit()
+
+	flash("Awesome! We got down your hours!")
+	return redirect('/')
+	
 
 
 
